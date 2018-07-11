@@ -3,7 +3,7 @@
     ''' <summary>System</summary>
     '''----------------------------------------------------------------------------------------
     Public Class System
-        Public Const APP_COPYRIGHT = "Copyright &copy;2016-@Year Nichiryo-Logistics Co.,Ltd. All rights reserved."
+        Public Const APP_COPYRIGHT = "111Copyright &copy;2016-@Year Nichiryo-Logistics Co.,Ltd. All rights reserved."
 
         Public Const LOG_RECORD = True                            ' システムログを記録するかどうか
     End Class
