@@ -1,0 +1,685 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{966138CF-AE72-467F-A763-DFDCBB8CC2F5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Sub Main</StartupObject>
+    <RootNamespace>YKHanbai</RootNamespace>
+    <AssemblyName>YKHanbai</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>YKHanbai.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>YKHanbai.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ActiveReports6, Version=6.6.4653.1, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\ActiveReportsNET6\Bin\v6.6.4653.1\ActiveReports6.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialog\dlgCustomer.Designer.vb">
+      <DependentUpon>dlgCustomer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\dlgCustomer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\dlgJobNo.Designer.vb">
+      <DependentUpon>dlgJobNo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\dlgJobNo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\dlgMachine.Designer.vb">
+      <DependentUpon>dlgMachine.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\dlgMachine.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\dlgStaff.Designer.vb">
+      <DependentUpon>dlgStaff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\dlgStaff.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\dlgMount.Designer.vb">
+      <DependentUpon>dlgMount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\dlgMount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\dlgDelivery.Designer.vb">
+      <DependentUpon>dlgDelivery.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\dlgDelivery.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\dlgPrintLoc.Designer.vb">
+      <DependentUpon>dlgPrintLoc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\dlgPrintLoc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\dlgPrintType.Designer.vb">
+      <DependentUpon>dlgPrintType.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\dlgPrintType.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\dlgBillDDInfo.Designer.vb">
+      <DependentUpon>dlgBillDDInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\dlgBillDDInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\dlgSupplier.Designer.vb">
+      <DependentUpon>dlgSupplier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\dlgSupplier.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\dlgItemName.Designer.vb">
+      <DependentUpon>dlgItemName.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\dlgItemName.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\dlgYamatoKind.Designer.vb">
+      <DependentUpon>dlgYamatoKind.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\dlgYamatoKind.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\dlgYamatoShop.Designer.vb">
+      <DependentUpon>dlgYamatoShop.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\dlgYamatoShop.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\dlgCustomerOne.Designer.vb">
+      <DependentUpon>dlgCustomerOne.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\dlgCustomerOne.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\dlgYamatoType.Designer.vb">
+      <DependentUpon>dlgYamatoType.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\dlgYamatoType.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\dlgType1.Designer.vb">
+      <DependentUpon>dlgType1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\dlgType1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\dlgType2.Designer.vb">
+      <DependentUpon>dlgType2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\dlgType2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\dlgPaperPriIn.Designer.vb">
+      <DependentUpon>dlgPaperPriIn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\dlgPaperPriIn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmDelivery.Designer.vb">
+      <DependentUpon>frmDelivery.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmDelivery.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmMachine.Designer.vb">
+      <DependentUpon>frmMachine.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmMachine.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmMount.Designer.vb">
+      <DependentUpon>frmMount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmMount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmBalanceClosing.Designer.vb">
+      <DependentUpon>frmBalanceClosing.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmBalanceClosing.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmPrintLoc.Designer.vb">
+      <DependentUpon>frmPrintLoc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmPrintLoc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmPersonnel.Designer.vb">
+      <DependentUpon>frmPersonnel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmPersonnel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmCustomerOne.Designer.vb">
+      <DependentUpon>frmCustomerOne.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmCustomerOne.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmDeliveryList.Designer.vb">
+      <DependentUpon>frmDeliveryList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmDeliveryList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmCustomer.Designer.vb">
+      <DependentUpon>frmCustomer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmCustomer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmBillDDInfo.Designer.vb">
+      <DependentUpon>frmBillDDInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmBillDDInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmPaperPriIn.Designer.vb">
+      <DependentUpon>frmPaperPriIn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmPaperPriIn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmPaperPriList.Designer.vb">
+      <DependentUpon>frmPaperPriList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmPaperPriList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmItemName.Designer.vb">
+      <DependentUpon>frmItemName.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmItemName.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmSupplier.Designer.vb">
+      <DependentUpon>frmSupplier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmSupplier.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmCustomerDetail.Designer.vb">
+      <DependentUpon>frmCustomerDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmCustomerDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmCustomerNote.Designer.vb">
+      <DependentUpon>frmCustomerNote.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmCustomerNote.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmCustomerPrint.Designer.vb">
+      <DependentUpon>frmCustomerPrint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmCustomerPrint.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmSupplierDetail.Designer.vb">
+      <DependentUpon>frmSupplierDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmSupplierDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmSupplierNote.Designer.vb">
+      <DependentUpon>frmSupplierNote.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmSupplierNote.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmPrinterSetting.Designer.vb">
+      <DependentUpon>frmPrinterSetting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmPrinterSetting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmSupplierPrint.Designer.vb">
+      <DependentUpon>frmSupplierPrint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmSupplierPrint.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmYamatoKind.Designer.vb">
+      <DependentUpon>frmYamatoKind.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmYamatoKind.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmYamatoShop.Designer.vb">
+      <DependentUpon>frmYamatoShop.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmYamatoShop.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmType1.Designer.vb">
+      <DependentUpon>frmType1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmType1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmBalanceMonthly.Designer.vb">
+      <DependentUpon>frmBalanceMonthly.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmBalanceMonthly.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmType2.Designer.vb">
+      <DependentUpon>frmType2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmType2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmYamatoType.Designer.vb">
+      <DependentUpon>frmYamatoType.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmYamatoType.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmTest.Designer.vb">
+      <DependentUpon>frmTest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmTest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu\MenuEigyo.Designer.vb">
+      <DependentUpon>MenuEigyo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\MenuEigyo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\frmOffSet.Designer.vb">
+      <DependentUpon>frmOffSet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\frmOffSet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\frmOrderOut.Designer.vb">
+      <DependentUpon>frmOrderOut.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\frmOrderOut.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\frmOrderBase.Designer.vb">
+      <DependentUpon>frmOrderBase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\frmOrderBase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\frmOrderItem.Designer.vb">
+      <DependentUpon>frmOrderItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\frmOrderItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\frmOrderPaper.Designer.vb">
+      <DependentUpon>frmOrderPaper.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\frmOrderPaper.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\frmFlexBlade.Designer.vb">
+      <DependentUpon>frmFlexBlade.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\frmFlexBlade.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartUp.vb" />
+    <Compile Include="Dialog\Common.vb" />
+    <Compile Include="Dialog\dlgPaste.Designer.vb">
+      <DependentUpon>dlgPaste.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\dlgPaste.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\dlgPaper.Designer.vb">
+      <DependentUpon>dlgPaper.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\dlgPaper.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmPaste.Designer.vb">
+      <DependentUpon>frmPaste.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmPaste.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\frmPaper.Designer.vb">
+      <DependentUpon>frmPaper.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\frmPaper.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dialog\dlgJobNo.resx">
+      <DependentUpon>dlgJobNo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\dlgPaste.resx">
+      <DependentUpon>dlgPaste.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\dlgPaper.resx">
+      <DependentUpon>dlgPaper.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\dlgCustomer.resx">
+      <DependentUpon>dlgCustomer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\dlgMachine.resx">
+      <DependentUpon>dlgMachine.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\dlgStaff.resx">
+      <DependentUpon>dlgStaff.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\dlgMount.resx">
+      <DependentUpon>dlgMount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\dlgDelivery.resx">
+      <DependentUpon>dlgDelivery.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\dlgPrintLoc.resx">
+      <DependentUpon>dlgPrintLoc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\dlgPrintType.resx">
+      <DependentUpon>dlgPrintType.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\dlgBillDDInfo.resx">
+      <DependentUpon>dlgBillDDInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\dlgSupplier.resx">
+      <DependentUpon>dlgSupplier.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\dlgItemName.resx">
+      <DependentUpon>dlgItemName.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\dlgYamatoKind.resx">
+      <DependentUpon>dlgYamatoKind.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\dlgYamatoShop.resx">
+      <DependentUpon>dlgYamatoShop.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\dlgCustomerOne.resx">
+      <DependentUpon>dlgCustomerOne.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\dlgYamatoType.resx">
+      <DependentUpon>dlgYamatoType.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\dlgType1.resx">
+      <DependentUpon>dlgType1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\dlgType2.resx">
+      <DependentUpon>dlgType2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\dlgPaperPriIn.resx">
+      <DependentUpon>dlgPaperPriIn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmBalanceClosing.resx">
+      <DependentUpon>frmBalanceClosing.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmPaste.resx">
+      <DependentUpon>frmPaste.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmPaper.resx">
+      <DependentUpon>frmPaper.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmDelivery.resx">
+      <DependentUpon>frmDelivery.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmMachine.resx">
+      <DependentUpon>frmMachine.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmMount.resx">
+      <DependentUpon>frmMount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmPrintLoc.resx">
+      <DependentUpon>frmPrintLoc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmPersonnel.resx">
+      <DependentUpon>frmPersonnel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmCustomerOne.resx">
+      <DependentUpon>frmCustomerOne.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmDeliveryList.resx">
+      <DependentUpon>frmDeliveryList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmCustomer.resx">
+      <DependentUpon>frmCustomer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmBillDDInfo.resx">
+      <DependentUpon>frmBillDDInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmPaperPriIn.resx">
+      <DependentUpon>frmPaperPriIn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmPaperPriList.resx">
+      <DependentUpon>frmPaperPriList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmItemName.resx">
+      <DependentUpon>frmItemName.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmSupplier.resx">
+      <DependentUpon>frmSupplier.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmCustomerDetail.resx">
+      <DependentUpon>frmCustomerDetail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmCustomerNote.resx">
+      <DependentUpon>frmCustomerNote.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmCustomerPrint.resx">
+      <DependentUpon>frmCustomerPrint.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmSupplierDetail.resx">
+      <DependentUpon>frmSupplierDetail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmSupplierNote.resx">
+      <DependentUpon>frmSupplierNote.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmPrinterSetting.resx">
+      <DependentUpon>frmPrinterSetting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmSupplierPrint.resx">
+      <DependentUpon>frmSupplierPrint.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmYamatoKind.resx">
+      <DependentUpon>frmYamatoKind.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmYamatoShop.resx">
+      <DependentUpon>frmYamatoShop.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmType1.resx">
+      <DependentUpon>frmType1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmBalanceMonthly.resx">
+      <DependentUpon>frmBalanceMonthly.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmType2.resx">
+      <DependentUpon>frmType2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmYamatoType.resx">
+      <DependentUpon>frmYamatoType.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\frmTest.resx">
+      <DependentUpon>frmTest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\MenuEigyo.resx">
+      <DependentUpon>MenuEigyo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\frmOffSet.resx">
+      <DependentUpon>frmOffSet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\frmOrderOut.resx">
+      <DependentUpon>frmOrderOut.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\frmOrderBase.resx">
+      <DependentUpon>frmOrderBase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\frmOrderItem.resx">
+      <DependentUpon>frmOrderItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\frmOrderPaper.resx">
+      <DependentUpon>frmOrderPaper.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\frmFlexBlade.resx">
+      <DependentUpon>frmFlexBlade.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\dll\Base\BaseContents\BaseContents.vbproj">
+      <Project>{6308BD12-6FFA-446C-BAE2-1F14998E1DA8}</Project>
+      <Name>BaseContents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dll\Base\BaseCore\BaseCore.vbproj">
+      <Project>{DAD54854-E396-46E6-B921-00697B881A7C}</Project>
+      <Name>BaseCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dll\Base\BaseDatabase\BaseDatabase.vbproj">
+      <Project>{43D04C14-075D-4707-AA16-9D3C0ED7ECB0}</Project>
+      <Name>BaseDatabase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dll\Base\BaseUI\BaseUI.vbproj">
+      <Project>{C6F2B9AF-800A-43AB-8314-A66A772A00D1}</Project>
+      <Name>BaseUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dll\Node\NodeContents\NodeContents.vbproj">
+      <Project>{05D8E021-6D40-4584-BF4E-64DEE49CE5AD}</Project>
+      <Name>NodeContents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dll\Node\NodeCore\NodeCore.vbproj">
+      <Project>{3A05845C-6146-47C7-8BDC-0F42D3A8A1C0}</Project>
+      <Name>NodeCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dll\Node\NodeDatabase\NodeDatabase.vbproj">
+      <Project>{4DE7E39F-F0F2-4DDF-80B4-38CADCA5E54C}</Project>
+      <Name>NodeDatabase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dll\Node\NodeReport\NodeReport.vbproj">
+      <Project>{18498D91-97A1-40C6-A856-D0B65D790B82}</Project>
+      <Name>NodeReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dll\Node\NodeUI\NodeUI.vbproj">
+      <Project>{5A0EEF46-149A-41D8-BB9A-93DB5DA4F381}</Project>
+      <Name>NodeUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Daily\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

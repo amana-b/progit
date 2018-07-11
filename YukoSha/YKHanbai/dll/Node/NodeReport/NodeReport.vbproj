@@ -1,0 +1,894 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{18498D91-97A1-40C6-A856-D0B65D790B82}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>NodeReport</RootNamespace>
+    <AssemblyName>NodeReport</AssemblyName>
+    <MyType>Windows</MyType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>NodeReport.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>NodeReport.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ActiveReports.Document, Version=6.6.4653.1, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="ActiveReports.Viewer6, Version=6.6.4653.1, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="ActiveReports6, Version=6.6.4653.1, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="DataDynamics.ActiveReports.DataSources" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bill\TB.Designer.vb">
+      <DependentUpon>TB.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bill\TB.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bill\JournalDiary.Designer.vb">
+      <DependentUpon>JournalDiary.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bill\JournalDiary.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bill\TotalAccountLedger.Designer.vb">
+      <DependentUpon>TotalAccountLedger.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bill\TotalAccountLedger.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bill\IncomeTran.Designer.vb">
+      <DependentUpon>IncomeTran.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bill\IncomeTran.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bill\SupplSubBalanceList.Designer.vb">
+      <DependentUpon>SupplSubBalanceList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bill\SupplSubBalanceList.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bill\SupplSubLedger.Designer.vb">
+      <DependentUpon>SupplSubLedger.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bill\SupplSubLedger.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bill\QuotationTotal.Designer.vb">
+      <DependentUpon>QuotationTotal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bill\QuotationTotal.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bill\QuotationTotalInner.Designer.vb">
+      <DependentUpon>QuotationTotalInner.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bill\QuotationTotalInner.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Common\Common.vb" />
+    <Compile Include="Daily\BancdorInvoiceStatement.Designer.vb">
+      <DependentUpon>BancdorInvoiceStatement.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Daily\BancdorInvoiceStatement.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Daily\PurchaseBill.Designer.vb">
+      <DependentUpon>PurchaseBill.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Daily\PurchaseBill.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Daily\PurchaseDailyTried1.Designer.vb">
+      <DependentUpon>PurchaseDailyTried1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Daily\PurchaseDailyTried1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Daily\PurchaseDailyTried2.Designer.vb">
+      <DependentUpon>PurchaseDailyTried2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Daily\PurchaseDailyTried2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Daily\xxxPersonnelSalesDailyTried.Designer.vb">
+      <DependentUpon>xxxPersonnelSalesDailyTried.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Daily\xxxPersonnelSalesDailyTried.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Daily\SalesBill.Designer.vb">
+      <DependentUpon>SalesBill.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Daily\SalesBill.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Daily\DepositBill.Designer.vb">
+      <DependentUpon>DepositBill.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Daily\DepositBill.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Daily\ShipRecord.Designer.vb">
+      <DependentUpon>ShipRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Daily\ShipRecord.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Daily\OutBill.Designer.vb">
+      <DependentUpon>OutBill.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Daily\OutBill.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Daily\xxxMachinPrdDaily1.Designer.vb">
+      <DependentUpon>xxxMachinPrdDaily1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Daily\xxxMachinPrdDaily1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Daily\xxxMachinPrdDaily2.Designer.vb">
+      <DependentUpon>xxxMachinPrdDaily2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Daily\xxxMachinPrdDaily2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Daily\BillList.Designer.vb">
+      <DependentUpon>BillList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Daily\BillList.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Daily\BancdorInvoice.Designer.vb">
+      <DependentUpon>BancdorInvoice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Daily\BancdorInvoice.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Daily\NaganoInvoice1.Designer.vb">
+      <DependentUpon>NaganoInvoice1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Daily\NaganoInvoice1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Daily\NaganoInvoice2.Designer.vb">
+      <DependentUpon>NaganoInvoice2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Daily\NaganoInvoice2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Daily\TaxStatement.Designer.vb">
+      <DependentUpon>TaxStatement.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Daily\TaxStatement.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Daily\DesertLandLabel.Designer.vb">
+      <DependentUpon>DesertLandLabel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Daily\DesertLandLabel.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Daily\DepositPlan.Designer.vb">
+      <DependentUpon>DepositPlan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Daily\DepositPlan.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Daily\BillStatement.Designer.vb">
+      <DependentUpon>BillStatement.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Daily\BillStatement.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Daily\BillStatement1.Designer.vb">
+      <DependentUpon>BillStatement1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Daily\BillStatement1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Master\DeliveryList.Designer.vb">
+      <DependentUpon>DeliveryList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\DeliveryList.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Master\aaaaDeliveryList.Designer.vb">
+      <DependentUpon>aaaaDeliveryList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\aaaaDeliveryList.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Master\PaperPriList.Designer.vb">
+      <DependentUpon>PaperPriList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\PaperPriList.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Master\CustomerList.Designer.vb">
+      <DependentUpon>CustomerList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\CustomerList.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Master\CustomerListSub.Designer.vb">
+      <DependentUpon>CustomerListSub.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\CustomerListSub.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Master\SupplierList.Designer.vb">
+      <DependentUpon>SupplierList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\SupplierList.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Master\SupplierListSub.Designer.vb">
+      <DependentUpon>SupplierListSub.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Master\SupplierListSub.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\CollectRest.Designer.vb">
+      <DependentUpon>CollectRest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\CollectRest.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\CustomerLedger.Designer.vb">
+      <DependentUpon>CustomerLedger.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\CustomerLedger.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\CustomerLedgerNo.Designer.vb">
+      <DependentUpon>CustomerLedgerNo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\CustomerLedgerNo.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\PaymentRest.Designer.vb">
+      <DependentUpon>PaymentRest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\PaymentRest.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\PaymentLedger1.Designer.vb">
+      <DependentUpon>PaymentLedger1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\PaymentLedger1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\PaymentLedgerNo1.Designer.vb">
+      <DependentUpon>PaymentLedgerNo1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\PaymentLedgerNo1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\PaymentLedger2.Designer.vb">
+      <DependentUpon>PaymentLedger2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\PaymentLedger2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\PaymentLedgerNo2.Designer.vb">
+      <DependentUpon>PaymentLedgerNo2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\PaymentLedgerNo2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\StuffNotReserveList.Designer.vb">
+      <DependentUpon>StuffNotReserveList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\StuffNotReserveList.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\StuffCustomerPrfMng.Designer.vb">
+      <DependentUpon>StuffCustomerPrfMng.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\StuffCustomerPrfMng.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\MachineSchedule.Designer.vb">
+      <DependentUpon>MachineSchedule.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\MachineSchedule.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\PaperPasteMountOrderList.Designer.vb">
+      <DependentUpon>PaperPasteMountOrderList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\PaperPasteMountOrderList.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\OffsetCost.Designer.vb">
+      <DependentUpon>OffsetCost.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\OffsetCost.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\StuffCustomerCost.Designer.vb">
+      <DependentUpon>StuffCustomerCost.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\StuffCustomerCost.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\StuffCost.Designer.vb">
+      <DependentUpon>StuffCost.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\StuffCost.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\CustomerSalesTran.Designer.vb">
+      <DependentUpon>CustomerSalesTran.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\CustomerSalesTran.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\DepartmentSalesPurchase.Designer.vb">
+      <DependentUpon>DepartmentSalesPurchase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\DepartmentSalesPurchase.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\MachineActual.Designer.vb">
+      <DependentUpon>MachineActual.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\MachineActual.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\PersonnelActual.Designer.vb">
+      <DependentUpon>PersonnelActual.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\PersonnelActual.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\CustomerRanking.Designer.vb">
+      <DependentUpon>CustomerRanking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\CustomerRanking.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\VenderPrfMng.Designer.vb">
+      <DependentUpon>VenderPrfMng.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\VenderPrfMng.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Monthly\TaxTotalList.Designer.vb">
+      <DependentUpon>TaxTotalList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Monthly\TaxTotalList.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Order\OrderSlip.Designer.vb">
+      <DependentUpon>OrderSlip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\OrderSlip.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\OrderSlipSub.Designer.vb">
+      <DependentUpon>OrderSlipSub.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\OrderSlipSub.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\Flexible.Designer.vb">
+      <DependentUpon>Flexible.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\Flexible.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\OrderSlipSubPaper.Designer.vb">
+      <DependentUpon>OrderSlipSubPaper.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\OrderSlipSubPaper.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\OrderSlipSubNote.Designer.vb">
+      <DependentUpon>OrderSlipSubNote.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\OrderSlipSubNote.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\OrderSlipSubDelivery.Designer.vb">
+      <DependentUpon>OrderSlipSubDelivery.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\OrderSlipSubDelivery.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\FlexibleSubDelivery.Designer.vb">
+      <DependentUpon>FlexibleSubDelivery.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\FlexibleSubDelivery.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\FlexibleSubNote.Designer.vb">
+      <DependentUpon>FlexibleSubNote.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\FlexibleSubNote.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\DeliveryPrintOrderRegister.Designer.vb">
+      <DependentUpon>DeliveryPrintOrderRegister.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\DeliveryPrintOrderRegister.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\OrderRegister.Designer.vb">
+      <DependentUpon>OrderRegister.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\OrderRegister.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\OrderSlipAhead.Designer.vb">
+      <DependentUpon>OrderSlipAhead.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\OrderSlipAhead.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\OrderSlipAheadSubDelivery.Designer.vb">
+      <DependentUpon>OrderSlipAheadSubDelivery.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\OrderSlipAheadSubDelivery.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\OrderSlipAheadSubNote.Designer.vb">
+      <DependentUpon>OrderSlipAheadSubNote.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\OrderSlipAheadSubNote.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\OrderSlipAheadSubPaper.Designer.vb">
+      <DependentUpon>OrderSlipAheadSubPaper.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\OrderSlipAheadSubPaper.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\PersonCustomerChkOrder.Designer.vb">
+      <DependentUpon>PersonCustomerChkOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\PersonCustomerChkOrder.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\LabelOrder.Designer.vb">
+      <DependentUpon>LabelOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\LabelOrder.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\WorkList.Designer.vb">
+      <DependentUpon>WorkList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\WorkList.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\ShipFinishCalender.Designer.vb">
+      <DependentUpon>ShipFinishCalender.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\ShipFinishCalender.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\OrderSlipOffset.Designer.vb">
+      <DependentUpon>OrderSlipOffset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\OrderSlipOffset.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\OrderSlipOffsetAhead.Designer.vb">
+      <DependentUpon>OrderSlipOffsetAhead.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\OrderSlipOffsetAhead.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\OrderSlipOffsetSubNote.Designer.vb">
+      <DependentUpon>OrderSlipOffsetSubNote.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\OrderSlipOffsetSubNote.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\OrderPlanReport.Designer.vb">
+      <DependentUpon>OrderPlanReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\OrderPlanReport.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\CustomerDeletePickupList.Designer.vb">
+      <DependentUpon>CustomerDeletePickupList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\CustomerDeletePickupList.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\PrintDeliveryOrderRegister.Designer.vb">
+      <DependentUpon>PrintDeliveryOrderRegister.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\PrintDeliveryOrderRegister.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\LabelSpec.Designer.vb">
+      <DependentUpon>LabelSpec.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\LabelSpec.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\ProductionPlan.Designer.vb">
+      <DependentUpon>ProductionPlan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\ProductionPlan.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Order\ShipSchedule.Designer.vb">
+      <DependentUpon>ShipSchedule.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Order\ShipSchedule.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Other\ItemConfig.Designer.vb">
+      <DependentUpon>ItemConfig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Other\ItemConfig.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Settings.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Bill\TB.resx">
+      <DependentUpon>TB.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bill\JournalDiary.resx">
+      <DependentUpon>JournalDiary.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bill\TotalAccountLedger.resx">
+      <DependentUpon>TotalAccountLedger.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bill\IncomeTran.resx">
+      <DependentUpon>IncomeTran.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bill\SupplSubBalanceList.resx">
+      <DependentUpon>SupplSubBalanceList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bill\SupplSubLedger.resx">
+      <DependentUpon>SupplSubLedger.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bill\QuotationTotal.resx">
+      <DependentUpon>QuotationTotal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bill\QuotationTotalInner.resx">
+      <DependentUpon>QuotationTotalInner.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Daily\BancdorInvoiceStatement.resx">
+      <DependentUpon>BancdorInvoiceStatement.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Daily\PurchaseBill.resx">
+      <DependentUpon>PurchaseBill.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Daily\PurchaseDailyTried1.resx">
+      <DependentUpon>PurchaseDailyTried1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Daily\PurchaseDailyTried2.resx">
+      <DependentUpon>PurchaseDailyTried2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Daily\xxxPersonnelSalesDailyTried.resx">
+      <DependentUpon>xxxPersonnelSalesDailyTried.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Daily\SalesBill.resx">
+      <DependentUpon>SalesBill.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Daily\DepositBill.resx">
+      <DependentUpon>DepositBill.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Daily\ShipRecord.resx">
+      <DependentUpon>ShipRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Daily\OutBill.resx">
+      <DependentUpon>OutBill.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Daily\xxxMachinPrdDaily1.resx">
+      <DependentUpon>xxxMachinPrdDaily1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Daily\xxxMachinPrdDaily2.resx">
+      <DependentUpon>xxxMachinPrdDaily2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Daily\BillList.resx">
+      <DependentUpon>BillList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Daily\BancdorInvoice.resx">
+      <DependentUpon>BancdorInvoice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Daily\NaganoInvoice1.resx">
+      <DependentUpon>NaganoInvoice1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Daily\NaganoInvoice2.resx">
+      <DependentUpon>NaganoInvoice2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Daily\TaxStatement.resx">
+      <DependentUpon>TaxStatement.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Daily\DesertLandLabel.resx">
+      <DependentUpon>DesertLandLabel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Daily\DepositPlan.resx">
+      <DependentUpon>DepositPlan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Daily\BillStatement.resx">
+      <DependentUpon>BillStatement.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Daily\BillStatement1.resx">
+      <DependentUpon>BillStatement1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\DeliveryList.resx">
+      <DependentUpon>DeliveryList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\aaaaDeliveryList.resx">
+      <DependentUpon>aaaaDeliveryList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\PaperPriList.resx">
+      <DependentUpon>PaperPriList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\CustomerList.resx">
+      <DependentUpon>CustomerList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\CustomerListSub.resx">
+      <DependentUpon>CustomerListSub.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\SupplierList.resx">
+      <DependentUpon>SupplierList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\SupplierListSub.resx">
+      <DependentUpon>SupplierListSub.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\CollectRest.resx">
+      <DependentUpon>CollectRest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\CustomerLedger.resx">
+      <DependentUpon>CustomerLedger.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\CustomerLedgerNo.resx">
+      <DependentUpon>CustomerLedgerNo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\PaymentRest.resx">
+      <DependentUpon>PaymentRest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\PaymentLedger1.resx">
+      <DependentUpon>PaymentLedger1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\PaymentLedgerNo1.resx">
+      <DependentUpon>PaymentLedgerNo1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\PaymentLedger2.resx">
+      <DependentUpon>PaymentLedger2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\PaymentLedgerNo2.resx">
+      <DependentUpon>PaymentLedgerNo2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\StuffNotReserveList.resx">
+      <DependentUpon>StuffNotReserveList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\StuffCustomerPrfMng.resx">
+      <DependentUpon>StuffCustomerPrfMng.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\MachineSchedule.resx">
+      <DependentUpon>MachineSchedule.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\PaperPasteMountOrderList.resx">
+      <DependentUpon>PaperPasteMountOrderList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\OffsetCost.resx">
+      <DependentUpon>OffsetCost.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\StuffCustomerCost.resx">
+      <DependentUpon>StuffCustomerCost.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\StuffCost.resx">
+      <DependentUpon>StuffCost.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\CustomerSalesTran.resx">
+      <DependentUpon>CustomerSalesTran.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\DepartmentSalesPurchase.resx">
+      <DependentUpon>DepartmentSalesPurchase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\MachineActual.resx">
+      <DependentUpon>MachineActual.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\PersonnelActual.resx">
+      <DependentUpon>PersonnelActual.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\CustomerRanking.resx">
+      <DependentUpon>CustomerRanking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\VenderPrfMng.resx">
+      <DependentUpon>VenderPrfMng.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monthly\TaxTotalList.resx">
+      <DependentUpon>TaxTotalList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\OrderSlip.resx">
+      <DependentUpon>OrderSlip.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\OrderSlipSub.resx">
+      <DependentUpon>OrderSlipSub.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\Flexible.resx">
+      <DependentUpon>Flexible.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\OrderSlipSubPaper.resx">
+      <DependentUpon>OrderSlipSubPaper.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\OrderSlipSubNote.resx">
+      <DependentUpon>OrderSlipSubNote.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\OrderSlipSubDelivery.resx">
+      <DependentUpon>OrderSlipSubDelivery.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\FlexibleSubDelivery.resx">
+      <DependentUpon>FlexibleSubDelivery.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\FlexibleSubNote.resx">
+      <DependentUpon>FlexibleSubNote.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\DeliveryPrintOrderRegister.resx">
+      <DependentUpon>DeliveryPrintOrderRegister.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\OrderRegister.resx">
+      <DependentUpon>OrderRegister.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\OrderSlipAhead.resx">
+      <DependentUpon>OrderSlipAhead.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\OrderSlipAheadSubDelivery.resx">
+      <DependentUpon>OrderSlipAheadSubDelivery.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\OrderSlipAheadSubNote.resx">
+      <DependentUpon>OrderSlipAheadSubNote.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\OrderSlipAheadSubPaper.resx">
+      <DependentUpon>OrderSlipAheadSubPaper.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\PersonCustomerChkOrder.resx">
+      <DependentUpon>PersonCustomerChkOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\LabelOrder.resx">
+      <DependentUpon>LabelOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\WorkList.resx">
+      <DependentUpon>WorkList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\ShipFinishCalender.resx">
+      <DependentUpon>ShipFinishCalender.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\OrderSlipOffset.resx">
+      <DependentUpon>OrderSlipOffset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\OrderSlipOffsetAhead.resx">
+      <DependentUpon>OrderSlipOffsetAhead.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\OrderSlipOffsetSubNote.resx">
+      <DependentUpon>OrderSlipOffsetSubNote.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\OrderPlanReport.resx">
+      <DependentUpon>OrderPlanReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\CustomerDeletePickupList.resx">
+      <DependentUpon>CustomerDeletePickupList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\PrintDeliveryOrderRegister.resx">
+      <DependentUpon>PrintDeliveryOrderRegister.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\LabelSpec.resx">
+      <DependentUpon>LabelSpec.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\ProductionPlan.resx">
+      <DependentUpon>ProductionPlan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\ShipSchedule.resx">
+      <DependentUpon>ShipSchedule.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Other\ItemConfig.resx">
+      <DependentUpon>ItemConfig.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Base\BaseCore\BaseCore.vbproj">
+      <Project>{DAD54854-E396-46E6-B921-00697B881A7C}</Project>
+      <Name>BaseCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NodeContents\NodeContents.vbproj">
+      <Project>{05D8E021-6D40-4584-BF4E-64DEE49CE5AD}</Project>
+      <Name>NodeContents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NodeDatabase\NodeDatabase.vbproj">
+      <Project>{4DE7E39F-F0F2-4DDF-80B4-38CADCA5E54C}</Project>
+      <Name>NodeDatabase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

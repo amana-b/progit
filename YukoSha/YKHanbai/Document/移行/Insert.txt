@@ -1,0 +1,919 @@
+Option Compare Database
+
+Private Sub コマンド0_Click()
+    Dim db As DAO.Database
+    Dim rs As DAO.Recordset
+    
+    Set db = CurrentDb()
+    
+    Dim sql As String
+                    
+    '---------------------------------------------------------------------------
+    ' M糊
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 1/78 M糊を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M糊(糊CD, 糊名) SELECT  VARNRCD,VARNRME FROM YK_YKNR_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M紙
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 2/78 M紙を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M紙(紙CD, 紙名, 紙種別区分) SELECT  VARKACD, VARKAME, VARSBKU FROM YK_YKKA_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M摘要
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 3/78 M摘要を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M摘要(摘要CD, 摘要名, 摘要分類区分) SELECT  VARTKCD, VARTKCD, VARTKKU FROM YK_KETK_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M台紙フレキ
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 4/78 M台紙フレキを実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M台紙フレキ(台紙CD, 台紙名, 板厚数) SELECT  VARDACD, VARDAME, NUMATSU FROM YK_YKDA_F_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M台紙
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 5/78 M台紙を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M台紙(台紙CD, 台紙名, 再利用区分) SELECT  VARDACD, VARDAME, VARSRKU FROM YK_YKDA_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M大分類
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 6/78 M大分類を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M大分類(大分類CD, 大分類名, 月当たり人件費, 月当たり間接固定経費) SELECT  VARDBCD, VARDBME, NUMJIKI, NUMKTKI FROM YK_YKDB_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M品名
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 7/78 M品名を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M品名(品名CD, 品名, 摘要, 定番品区分, 在庫区分, 得意先CD, 御客様NO, 適正在庫数, 売上単価, 在庫単価, 本台帳NO, 本台帳NO連番, ヤマトデータ区分, ヤマト種別区分, 表記用単価) SELECT  VARHICD, VARHIME, VARTEKI, VARTHKU, VARZAKU, VARTOCD, VAROKNO, NUMTZSR, NUMURTA, NUMZATA, VARSGNO, VAREDNO, VARDTKU, VARSBKU, NUMHKTA FROM YK_YKHI_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M補助科目
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 8/78 M補助科目を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M補助科目(科目CD, 補助科目CD, 補助科目名) SELECT  VARKMCD, VARHJCD, VARHJME FROM YK_YKHJ_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M印刷場所
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 9/78 M印刷場所を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M印刷場所(印刷場所CD, 印刷場所名, 印刷機械種別, 場所区分) SELECT  VARIBCD, VARIBME, VARIKCD, VARBAKU FROM YK_YKIB_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M印刷機械種別
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 10/78 M印刷機械種別を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M印刷機械種別(印刷機械種別CD, 印刷機械種別名) SELECT  VARIKCD, VARIKME FROM YK_YKIK_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M機械
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 11/78 M機械を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M機械(機械CD, 機械名, 固定経費平圧金額, 固定経費平圧条件外一通あたり金額, 機械区分, 担当者CD, コーター回転数, コーター日数, 分類CD, 機械種別区分, 固定経費平圧条件, 固定経費輪転条件, 固定経費輪転金額, 固定経費輪転条件外一通あたり金額) SELECT  VARKICD, VARKIME, NUMKKTA1, NUMKKTA2, VARKIKU, VARTACD, NUMKTSU, NUMKTNI, VARBUCD, VARKSKU, NUMKISUH, NUMKISUR, NUMKKTA1R, NUMKKTA2R FROM YK_YKKI_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M紙価格
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 12/78 M紙価格を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M紙価格(仕入先CD, 社内用紙CD, 社内用糊CD, 社内用台紙CD, 単位区分, 発注用紙CD, 発注用糊CD, 発注用台紙CD, 社内単価, 発注単価) SELECT  VARSICD, VARKACD, VARNRCD, VARDACD, VARTAKU, VARHKCD, VARHNCD, VARHDCD, NUMSYTA, NUMHATA FROM YK_YKKK_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M科目
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 13/78 M科目を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M科目(科目CD, 科目名, BS_PL区分, 売掛入金時借方候補区分, 買掛支払時貸方候補区分, 入出金入力時の区分, 貸借区分, 補助科目有無区分) SELECT  VARKMCD, VARKMME, VARBPKU, VARUNKU, VARKNKU, VARNSKU, VARTSKU, VARHJKU FROM YK_YKKM_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M特殊帳票
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 14/78 M特殊帳票を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M特殊帳票(帳票区分, コンピュータ名, プリンタ名) SELECT  VARCHKU, VARUSER, VARPRME FROM YK_YKPR_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M小分類
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 15/78 M小分類を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M小分類(小分類CD, 小分類名) SELECT  VARSBCD, VARSBME FROM YK_YKSB_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M仕入先
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 16/78 M仕入先を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M仕入先(仕入先CD, 仕入先名, 略称, カナ名, 郵便番号, 住所1, 住所2, 役職_担当者名, TEL, 買掛金_未払金区分, 代表者役職_代表者名1, FAX, 代表者役職_代表者名2) SELECT  VARSICD, VARSIME, VARRYME, VARKNME, VARYUNO, VARJUS1, VARJUS2, VARYTME, VARTEL, VARKMKU, VARDHME, VARFAX, VARDHME2 FROM YK_YKSI_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M出荷先
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 17/78 M出荷先を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M出荷先(得意先CD, 出荷先CD, 出荷先名, 郵便番号, 住所1, 住所2, TEL, FAX) SELECT  VARTOCD, VARSKCD, VARSKME, VARYUNO, VARJUS1, VARJUS2, VARTEL, VARFAX FROM YK_YKSK_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M締日情報
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 18/78 M締日情報を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M締日情報(締日, 今回請求年月日) SELECT  VARSIHI, Mid(VARKSHI,1,4) & '/' & Mid(VARKSHI,5,2) & '/' & Mid(VARKSHI,7,2) FROM YK_YKSM_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M仕入先詳細
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 19/78 M仕入先詳細を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M仕入先詳細(仕入先CD, 行NO, 部署名, 担当者名, 郵便番号, 住所1, 住所2, TEL, FAX, 携帯, メール, 本支店名) SELECT  VARSICD, VARGYNO, VARBSME, VARYTME, VARYUNO, VARJUS1, VARJUS2, VARTEL, VARFAX, VARKTAI, VARMAIL, VARHSME FROM YK_YKSS_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M仕入先特記
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 20/78 M仕入先特記を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M仕入先特記(仕入先CD, 行NO, 特記事項) SELECT  VARSICD, VARGYNO, VARTOKI FROM YK_YKST_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M担当者
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 21/78 M担当者を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M担当者(担当者CD, 担当者名, コーター通数, コーター金額, 開始見積NO, 売上日計表対象有無) SELECT  VARTACD, VARTAME, NUMKTSU, NUMKTKI, VARMINO, VARURKU FROM YK_YKTA_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M得意先特記
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 22/78 M得意先特記を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M得意先特記(得意先CD, 行NO, 特記事項) SELECT  VARTOCD, VARGYNO, VARTOKI FROM YK_YKTK_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M得意先個人
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 23/78 M得意先個人を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M得意先個人(得意先CD, 得意先名, カナ名, 郵便番号, 住所1, 住所2, TEL, 役職_担当者名, 代表者役職_代表者名, 担当者CD, 仮伝パターンCD, 売伝パターンCD, 消費税区分, 締日, 回収条件設定金額, 回収条件以上回収月, 回収条件以上回収日, 回収条件以上回収方法, 回収条件未満回収月, 回収条件未満回収日, 回収条件未満回収方法, 請求書発行区分) SELECT  VARTOCD, VARTOME, VARKNME, VARYUNO, VARJUS1, VARJUS2, VARTEL, VARYTME, VARDHME, VARTACD, VARKPCD, VARUPCD, VARSYKU, VARSIHI, NUMKJKI, VARSIQL1, VARKIHI1, VARSKKU1, VARSIQL2, VARKIHI2, VARSKKU2, VARSEKU FROM YK_YKTO_K_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M得意先
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 24/78 M得意先を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M得意先(得意先CD, 得意先名, 請求書用得意先名1, 請求書用得意先名2, カナ名, 郵便番号, 住所1, 住所2, TEL, 役職_担当者名, 代表者役職_代表者名1, 自社担当者CD, 仮伝パターンCD, 売伝パターンCD, 消費税区分, 締日, 回収条件設定金額, 回収条件以上回収月, 回収条件以上回収日, 回収条件以上回収方法, 回収条件未満回収月, 回収条件未満回収日, 回収条件未満回収方法, 請求書発行区分, 集計用得意先CD, 表示振替用得意先CD, 重要度, 御客様NO, FAX, 代表者役職_代表者名2) SELECT  VARTOCD, VARTOME, '', '' , VARKNME, VARYUNO, VARJUS1, VARJUS2, VARTEL, VARYTME, VARDHME, VARTACD, VARKPCD, VARUPCD, VARSYKU, VARSIHI, NUMKJKI, VARSIQL1, VARKIHI1, VARSKKU1, VARSIQL2, VARKIHI2, VARSKKU2, VARSEKU, VARSTCD, VARFTCD, VARRANK, VAROKNO, VARFAX, VARDHME2 FROM YK_YKTO_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M得意先詳細
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 25/78 M得意先詳細を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M得意先詳細(得意先CD, 行NO, 部署名, 担当者名, 郵便番号, 住所1, 住所2, TEL, FAX, 携帯, メール, 本支店名) SELECT  VARTOCD, VARGYNO, VARBSME, VARYTME, VARYUNO, VARJUS1, VARJUS2, VARTEL, VARFAX, VARKTAI, VARMAIL, VARHSME FROM YK_YKTS_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' M売伝パターン
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 26/78 M売伝パターンを実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_M売伝パターン(パターンCD, 売伝パターン名, 明細行数, 売上NO自動発番区分, VARURTK) SELECT  VARUPCD, VARUPME, NUMURGY, VARURJK, VARURTK FROM YK_YKUP_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' Mヤマトデータ区分
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 27/78 Mヤマトデータ区分を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_Mヤマトデータ区分(データ区分, データ区分名, 略称, 種別内訳区分, 入数, 最大ケース数, 受注単価, 品名コード, 光村印刷得意先CD, 光村印刷出荷先CD, 材料請求仕単価, 材料請求仕品名, クロネコメール便バーコード開始NO, クロネコメール便バーコード終了NO, クロネコメール便バーコード次回発番NO) SELECT  VARDTKU, VARDTME, VARRYME, VARSWKU, NUMIRSU, NUMMCSU, NUMJCTA, VARHICD, VARTOCD, VARSKCD, NUMZATA, VARZAHI, VARBACDS, VARBACDE, VARBACDN FROM YK_YKYD_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' Mヤマト種別
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 28/78 Mヤマト種別を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_Mヤマト種別(データ区分, 種別区分, 種別名, 品名コード) SELECT  VARDTKU, VARSBKU, VARSBME, VARHICD FROM YK_YKYS_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' Mヤマト店所
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 29/78 Mヤマト店所を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_Mヤマト店所(店所CD, 店所名, TEL) SELECT  VARTSCD, VARTSME, VARTEL FROM YK_YKYT_MASTER"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T補助科目残高
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 30/78 T補助科目残高を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T補助科目残高(期首残高設定年度, 科目CD, 補助科目CD, 伝票日付, 期首残高) SELECT VARNEND, VARKMCD, VARHJCD, Mid(VARDEHIM,1,4) & '/' & Mid(VARDEHIM,5,2) & '/' & Mid(VARDEHIM,7,2), NUMZAKI FROM YK_KEHZ_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T科目残高
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 31/78 T科目残高を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T科目残高(期首残高設定年度, 科目CD, 伝票日付, 期首残高) SELECT  VARNEND, VARKMCD, Mid(VARDEHIM,1,4) & '/' & Mid(VARDEHIM,5,2) & '/' & Mid(VARDEHIM,7,2), NUMZAKI FROM YK_KEKZ_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T仕訳
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 32/78 T仕訳を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T仕訳(年度, 伝票NO, 借方_貸方区分, 行NO, 伝票年月日, 伝票年月, 種別内訳区分, 科目CD1, 相手方参照, 相手方CD, 相手方名前, 摘要参照, 摘要CD, 摘要名, 金額1, 科目CD2, 金額2, VARDHKU, 補助科目CD1, 補助科目CD2) SELECT  VARNEND, VARSWNO, VARHAKU, VARGYNO, Mid(VARDEHI,1,4) & '/' & Mid(VARDEHI,5,2) & '/' & Mid(VARDEHI,7,2), Mid(VARNEGE,1,4) & '/' & Mid(VARNEGE,5,2), VARSWKU, VARKMCD, VARTKK1, VARTKC1, VARTEK1, VARTKK2, VARTKC2, VARTEK2, NUMKING, VARKMCDA, NUMKINGA, VARDHKU, VARHJCD, VARHJCDA FROM YK_KESW_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' Tクレーム
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 33/78 Tクレームを実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_Tクレーム(クレーム発生日, 担当者CD, 作業NO, 枝番, クレーム種別区分, 機械CD, クレーム通数, クレーム金額) SELECT  Mid(VARCLHI,1,4) & '/' & Mid(VARCLHI,5,2) & '/' & Mid(VARCLHI,7,2), VARTACD, VARSGNO, VAREDNO, VARCLKU, VARKICD, NUMTSSU, NUMKING FROM YK_YKCL_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T不良
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 34/78 T不良を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T不良(作業NO, 枝番, 不良発生日, 不良数, 単位区分, 廃棄有無, 備考) SELECT  VARSGNO, VAREDNO, Mid(VARFRHI,1,4) & '/' & Mid(VARFRHI,5,2) & '/' & Mid(VARFRHI,7,2), NUMFRSU, VARTAKU, VARHKKU, VARBIKO FROM YK_YKFR_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T月次残高
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 35/78 T月次残高を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T月次残高(取引先区分, 取引先CD, 確定済対象年月, 月末残高) SELECT  VARTOKU, VARTOCD, Mid(VARNEGE,1,4) & '/' & Mid(VARNEGE,5,2), NUMZAKI FROM YK_YKGZ_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T刃型
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 36/78 T刃型を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T刃型(刃型NO, 横_紙幅方向, 縦_流れ方向, 角, 形状, 刃型種類, ギア数, 板厚, 面付紙幅方向列数, 面付紙幅方向間隔, 面付流れ方向列数, 面付流れ方向間隔, 備考, 作成日, 累計使用, 仕入先CD, 置き場所) SELECT  VARHGNO, NUMSUPW, NUMSUPH, NUMKDMR, VARKJKU, VARHGKU, NUMGISU, NUMATSU, NUMRETU, NUMRTKN, NUMMENN, NUMMNKN, VARBIKO, Mid(VARSAHI,1,4) & '/' & Mid(VARSAHI,5,2) & '/' & Mid(VARSAHI,7,2), NUMRSSU, VARSICD, VARBAKU FROM YK_YKHG_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T発送仕上予定
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 37/78 T発送仕上予定を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T発送仕上予定(発送予定日, 分類区分, 場所区分, 行NO, 作業NO, 発送_仕上げ区分) SELECT Mid(VARHSHI,1,4) & '/' & Mid(VARHSHI,5,2) & '/' & Mid(VARHSHI,7,2), VARBUKU, VARBAKU, VARGYNO, VARSGNO, VARHSKU FROM YK_YKHY_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T印刷資材ロットNO登録
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 38/78 T印刷資材ロットNO登録を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T印刷資材ロットNO登録(作業NO, 巻NO, 資材ロットNO) SELECT  VARSGNO, NUMKNSU, VARISNO FROM YK_YKIS_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T受注基本
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 39/78 T受注基本を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T受注基本(作業NO, 受注年月日, 御客様NO , 枝番 , 得意先CD, 本台帳NO, VARHIUM, 代表商品名, 顧客商品CD, 受注数合計, 通し数, 通し数1, 通し数2, 通し数3, 受注単価, 受注金額, B納期年月日, VARKKKU, VARGEHI, NUMTSSR, NUMURSR, NUMNYSR, 見積, 原価, NUMKKKI, 巻取区分, 巻取名, 出し方向区分, 出し方向名, 紙管, 枚数, スリッター区分, スリッター名, スリッター巾, カット1, カット2, カット3, 包装枚数, 面付, VARSGIH1, VARSGIH2, VARJLKU1, VARJLKU2, VARSGKU, 発注CD, 発注単価, 発注金額, 発注納期, 刃型NO, 印刷場所CD, 請求先CD, 受注区分, 版NO, ギヤ数, VARHKNG, A納品年月日, 入力担当者CD, VARKRKU, VARKRHI, 入金区分, 内在庫使用数, 単位, VARHSTJ, 全顧客商品CD)"
+    sql = sql & " SELECT  YK_YKJD_DATA.VARSGNO  "
+    sql = sql & "      , Mid(YK_YKJD_DATA.VARJUHI,1,4) & '/' & Mid(YK_YKJD_DATA.VARJUHI,5,2) & '/' & Mid(YK_YKJD_DATA.VARJUHI,7,2)  "
+    sql = sql & "      , YK_YKJD_DATA.VAROKNO  "
+    sql = sql & "      , YK_YKJD_DATA.VAREDNO  "
+    sql = sql & "      , YK_YKJD_DATA.VARTOCD "
+    sql = sql & "      , YK_YKJD_DATA.VARHDNO "
+    sql = sql & "      , YK_YKJD_DATA.VARHIUM "
+    sql = sql & "      , YK_YKJD_DATA.VARHIME  "
+    sql = sql & "      , YK_YKJD_DATA.VARKSCD  "
+    sql = sql & "      , YK_YKJD_DATA.NUMJYSU  "
+    sql = sql & "      , YK_YKJD_DATA.NUMTSSU  "
+    sql = sql & "      , YK_YKJD_DATA.NUMTSSU1 "
+    sql = sql & "      , YK_YKJD_DATA.NUMTSSU2 "
+    sql = sql & "      , YK_YKJD_DATA.NUMTSSU3  "
+    sql = sql & "      , YK_YKJD_DATA.NUMJYTA "
+    sql = sql & "      , YK_YKJD_DATA.NUMJYKI "
+    sql = sql & "      , Mid(YK_YKJD_DATA.VARJNHI,1,4) & '/' & Mid(YK_YKJD_DATA.VARJNHI,5,2) & '/' & Mid(YK_YKJD_DATA.VARJNHI,7,2) "
+    sql = sql & "      , YK_YKJD_DATA.VARKKKU  "
+    sql = sql & "      , YK_YKJD_DATA.VARGEHI  "
+    sql = sql & "      , YK_YKJD_DATA.NUMTSSR "
+    sql = sql & "      , YK_YKJD_DATA.NUMURSR "
+    sql = sql & "      , YK_YKJD_DATA.NUMNYSR  "
+    sql = sql & "      , YK_YKJD_DATA.NUMURKI  "
+    sql = sql & "      , YK_YKJD_DATA.NUMSIKI  "
+    sql = sql & "      , YK_YKJD_DATA.NUMKKKI  "
+    sql = sql & "      , YK_YKJD_DATA.VARMKKU  "
+    sql = sql & "      , YK_YKJD_DATA.VARMKME  "
+    sql = sql & "      , YK_YKJD_DATA.VARDKKU  "
+    sql = sql & "      , YK_YKJD_DATA.VARDKME  "
+    sql = sql & "      , YK_YKJD_DATA.NUMSIKN  "
+    sql = sql & "      , YK_YKJD_DATA.NUMMAIS  "
+    sql = sql & "      , YK_YKJD_DATA.VARSRKU  "
+    sql = sql & "      , YK_YKJD_DATA.VARSRME  "
+    sql = sql & "      , YK_YKJD_DATA.NUMSRHA  "
+    sql = sql & "      , YK_YKJD_DATA.NUMCUT1  "
+    sql = sql & "      , YK_YKJD_DATA.NUMCUT2  "
+    sql = sql & "      , YK_YKJD_DATA.NUMCUT3  "
+    sql = sql & "      , YK_YKJD_DATA.NUMHMSU  "
+    sql = sql & "      , YK_YKJD_DATA.NUMOKPT  "
+    sql = sql & "      , YK_YKJD_DATA.VARSGIH1  "
+    sql = sql & "      , YK_YKJD_DATA.VARSGIH2  "
+    sql = sql & "      , YK_YKJD_DATA.VARJLKU1  "
+    sql = sql & "      , YK_YKJD_DATA.VARJLKU2  "
+    sql = sql & "      , YK_YKJD_DATA.VARSGKU "
+    sql = sql & "      , YK_YKJD_DATA.VARGACD "
+    sql = sql & "      , YK_YKJD_DATA.NUMHATA "
+    sql = sql & "      , YK_YKJD_DATA.NUMHAKI "
+    sql = sql & "      , Mid(YK_YKJD_DATA.VARHNHI,1,4) & '/' & Mid(YK_YKJD_DATA.VARHNHI,5,2) & '/' & Mid(YK_YKJD_DATA.VARHNHI,7,2)"
+    sql = sql & "      , YK_YKJD_DATA.VARHGNO "
+    sql = sql & "      , YK_YKJD_DATA.VARIBCD "
+    sql = sql & "      , YK_YKJD_DATA.VARSECD  "
+    sql = sql & "      , YK_YKJD_DATA.VARJUKU  "
+    sql = sql & "      , YK_YKJD_DATA.VARHNNO  "
+    sql = sql & "      , YK_YKJD_DATA.NUMGISU  "
+    sql = sql & "      , YK_YKJD_DATA.VARHKNG  "
+    sql = sql & "      , Mid(YK_YKJD_DATA.VARSNHI,1,4) & '/' & Mid(YK_YKJD_DATA.VARSNHI,5,2) & '/' & Mid(YK_YKJD_DATA.VARSNHI,7,2)"
+    sql = sql & "      , YK_YKJD_DATA.VARTACD  "
+    sql = sql & "      , YK_YKJD_DATA.VARKRKU  "
+    sql = sql & "      , YK_YKJD_DATA.VARKRHI  "
+    sql = sql & "      , YK_YKJD_DATA.VARNYKU  "
+    sql = sql & "      , YK_YKJD_DATA.NUMUZHS  "
+    sql = sql & "      , YK_YKJD_DATA.VARTANI  "
+    sql = sql & "      , YK_YKJD_DATA.VARHSTJ  "
+    sql = sql & "      , YK_YKJD_DATA.VARKSCD_ALL  "
+    sql = sql & "   FROM YK_YKJD_DATA "
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T受注売上
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 40/78 T受注売上を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T受注売上(作業NO, 行NO, 売上金額, 売上種別区分, 売上種別名, 数量, 単価) SELECT  VARSGNO, VARGYNO, NUMUSKI, VARUSKU, VARURME, NUMSURY, NUMTANK FROM YK_YKJS_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T受注作業注意
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 41/78 T受注作業注意を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T受注作業注意(作業NO, 行NO, 注意事項) SELECT  VARSGNO, VARGYNO, VARCHUI FROM YK_YKJC_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T受注出荷注意
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 42/78 T受注出荷注意を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T受注出荷注意(作業NO, 行NO, 注意事項) SELECT  VARSGNO, VARGYNO, VARCHUS FROM YK_YKJJ_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T受注出荷先
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 43/78 T受注出荷先を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T受注出荷先(作業NO, 行NO, 出荷先CD, 出荷先名) SELECT  VARSGNO, VARGYNO, VARSKCD, VARSKME FROM YK_YKJH_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T受注商品内訳1
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 44/78 T受注商品内訳1を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T受注商品内訳1(作業NO, 行NO, 枝番, 定番コード, 商品名, 受注数, 受注単価, NUMHUTA, A納期, 備考, B納期, 内在庫使用数, 顧客商品CD) SELECT  VARSGNO, VARGYNO, VAREDNO, VARHICD, VARHIME, NUMJYSU, NUMJUTA, NUMHUTA, Mid(VARJNHI,1,4) & '/' & Mid(VARJNHI,5,2) & '/' & Mid(VARJNHI,7,2), VARBIKO, Mid(VARSNHI,1,4) & '/' & Mid(VARSNHI,5,2) & '/' & Mid(VARSNHI,7,2), NUMUZHS, VARKSCD FROM YK_YKJU_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T受注商品内訳2
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 45/78 T受注商品内訳2を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T受注商品内訳2(作業NO, 行NO, 顧客発注NO, 倉庫NO) SELECT  VARSGNO, VARGYNO, VARHANO, VARSONO FROM YK_YKJN_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T受注紙発注
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 46/78 T受注紙発注を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T受注紙発注(作業NO, 行NO, 紙CD, 紙名, 糊CD, 糊名, 台紙CD, 台紙名, 巾, 長さ, 仕入先CD, 買掛支払時貸方候補区分, 発注年月日, 単位区分, 発注単価, 納入区分, 支給区分, 有償支給単価, 送りMM, 通数, つなぎロス, 刷出, その他, 社内_社外区分, 社内単価, 仕入先指定区分, 希望日, 希望時間帯区分, 一巻き当たりM, 発注用摘要1, 発注用摘要2, 発注用摘要3) SELECT  VARSGNO, VARGYNO, VARKACD, VARKAME, VARNRCD, VARNRME, VARDACD, VARDAME, NUMSUPW, NUMSUPH, VARSICD, VARKNKU, Mid(VARHAHI,1,4) & '/' & Mid(VARHAHI,5,2) & '/' & Mid(VARHAHI,7,2), VARTAKU, NUMSITA, VARNNKU, VARSIKU, NUMSKTA, NUMOKSU, NUMTSSU, NUMLOSS, NUMSRDS, NUMSOLO, VARSSCD, NUMSYTA, VARSTKU, Mid(VARKBHI,1,2) & '/' & Mid(VARKBHI,3,2), VARKBKU, NUMKISU, VARHTEKI1, VARHTEKI2, VARHTEKI3 FROM YK_YKJK_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' Tフレキ
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 47/78 Tフレキを実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_Tフレキ(作業NO, 本台帳NO, 機番, 刃型区分, 顧客刃型番号, 担当者CD, 原価, 刃型サイズ紙幅方向, 刃型サイズ流れ方向, 刃型サイズ角, 刃型サイズ形状, 刃型情報ギヤ数, 刃型情報板厚, 刃型情報総円周, 刃型情報バリヤー, 面付紙幅方向面数, 面付紙幅方向ドブ寸法, 面付流れ方向面数, 面付流れ方向ドブ寸法, 刃型サイズ全体紙幅方向, 刃型サイズ全体流れ方向, 線幅刃型線, 線幅原点, 線幅トンボ, バリヤー表CD, セパレータCD, 機械種, 計上先作業NO, 仕入先CD) SELECT  VARSGNO, VARHDNO, VARKINO, VARHGKU, VARKHNO, VARTACD, NUMSIKI, NUMSUPW, NUMSUPH, NUMKDMR, VARKJKU, NUMGISU, NUMATSU, NUMENSY, NUMBARI, NUMRETU, NUMRTKN, NUMMENN, NUMMNKN, NUMSUWZ, NUMSUHZ, NUMHGHB, NUMGNHB, NUMTNHB, VARBRCD, VARDACD, VARKIKU, VARKSNO, VARSICD FROM YK_YKJF_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T紙原価振替
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 48/78 T紙原価振替を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T紙原価振替(振替年月日, 振替年作業NO, 受注紙発注行, 枝番, 仕入先CD, 紙CD, 紙名, 糊CD, 糊名, 台紙CD, 台紙名, 巾, 残りM, 単価区分, 振替単価, 原価, 納入区分, VARTEKU, 印刷区分, 振替元発注NO, 振替行NO, 入庫日, 振替枝番) SELECT  Mid(VARFRHI,1,4) & '/' & Mid(VARFRHI,5,2) & '/' & Mid(VARFRHI,7,2), VARSGNO, VARJKGY, VAREDNO, VARSICD, VARKACD, VARKAME, VARNRCD, VARNRME, VARDACD, VARDAME, NUMSUPW, NUMSUPH, VARTAKU, NUMSITA, NUMSIKI, VARNNKU, VARTEKU, VARINKU, VARFSGNO, VARFGYNO, Mid(VARFSIHI,1,4) & '/' & Mid(VARFSIHI,5,2) & '/' & Mid(VARFSIHI,7,2), VARFEDNO FROM YK_YKKF_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T紙発注
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 49/78 T紙発注を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T紙発注(作業NO, 受注紙発注行, VARBUNO, 発注年月日, VARINJI, 仕入先CD, 紙発注担当者CD, 紙CD, 紙名, 糊CD, 糊名, 台紙CD, 台紙名, 巾, M, 巻数, M巻数, 納入区分, 希望日, 希望区分, 単価区分, 発注単価, 摘要1, 摘要2, 摘要3, 買掛支払時貸方候補区分, 枝番) SELECT  VARSGNO, VARJKGY, VARBUNO, Mid(VARHAHI,1,4) & '/' & Mid(VARHAHI,5,2) & '/' & Mid(VARHAHI,7,2), VARINJI, VARSICD, VARTACD, VARKACD, VARKAME, VARNRCD, VARNRME, VARDACD, VARDAME, NUMSUPW, NUMKANH, NUMKANS, NUMSUPH, VARNNKU, Mid(VARKBHI,1,2) & '/' & Mid(VARKBHI,3,2), VARKBKU, VARTAKU, NUMHATA, VARTEKI, VARTEKI2, VARTEKI3, VARKNKU, VAREDNO FROM YK_YKKH_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T見積備考旧
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 50/78 T見積備考旧を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T見積備考旧(担当者CD, 見積NO, 行NO, 備考) SELECT  VARTACD, VARMINO, VARGYNO, VARTKME FROM YK_YKMI_B_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T見積旧
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 51/78 T見積旧を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T見積旧(担当者CD, 見積NO, 得意先CD, 得意先名, 得意先担当者名, 宛先区分, 見積日, 貴日付, 号, 受渡期間, 受渡場所, 取引方法, 有効期限, 消費税文言印字, 合計金額, 合計金額印字区分, 積算NO) SELECT  VARTACD, VARMINO, VARTOCD, VARTOME, VARTAME, VARATKU, Mid(VARMIHI,1,4) & '/' & Mid(VARMIHI,5,2) & '/' & Mid(VARMIHI,7,2), Mid(VARKIHI,1,2) & '/' & Mid(VARKIHI,3,2) & '/' & Mid(VARKIHI,5,2), VARDAGO, VARUKHI, VARUKBA, VARTOHO, VARYKKI, VARSYMO, NUMKING, VARGKKU, VARSENO FROM YK_YKMI_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T見積明細旧
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 52/78 T見積明細旧を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T見積明細旧(担当者CD, 見積NO, 行NO, 摘要名, 数量, 単価, 金額) SELECT  VARTACD, VARMINO, VARGYNO, VARTKME, NUMSURY, NUMTANK, NUMKING FROM YK_YKMI_M_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T見積備考
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 53/78 T見積備考を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T見積備考(見積NO, 行NO, 備考欄) SELECT  VARMINO, VARGYNO, VARTKME FROM YK_YKMM_B_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T見積
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 54/78 T見積を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T見積(見積NO, 積算NO, 担当者CD, 見積日, 得意先CD, 得意先名, 得意先担当者名, 宛先区分, 貴日付, 号, 受渡期間, 受渡場所, 取引方法, 有効期限, 消費税文言印字区分, 合計金額印字区分, 印刷用紙の向き区分, 合計金額) SELECT  VARMINO, VARSENO, VARTACD, Mid(VARMIHI,1,4) & '/' & Mid(VARMIHI,5,2) & '/' & Mid(VARMIHI,7,2), VARTOCD, VARTOME, VARTAME, VARATKU, Mid(VARKIHI,1,2) & '/' & Mid(VARKIHI,3,2) & '/' & Mid(VARKIHI,5,2), VARDAGO, VARUKHI, VARUKBA, VARTOHO, VARYKKI, VARSYMO, VARGKKU, VARYSKU, NUMKING FROM YK_YKMM_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T見積明細
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 55/78 T見積明細を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T見積明細(見積NO, 行NO, 摘要名, 数量, 単位, 単価, 金額) SELECT  VARMINO, VARGYNO, VARTKME, NUMSURY, VARTANI, NUMTANK, NUMKING FROM YK_YKMM_M_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T入庫
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 56/78 T入庫を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T入庫(入庫NO, 入庫年月日, 作業NO, 定番CD, 摘要, 入庫数, 印刷区分, 小分類CD) SELECT  VARNKNO, Mid(VARNKHI,1,4) & '/' & Mid(VARNKHI,5,2) & '/' & Mid(VARNKHI,7,2), VARSGNO, VARHICD, VARTEKI, NUMNKSR, VARINKU, VARSBCD FROM YK_YKNK_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T入金
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 57/78 T入金を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T入金(入金NO, 行NO, 入金年月日, 得意先CD, 入金区分, 科目CD, 摘要, 入金額, 補助科目CD) SELECT  VARNYNO, VARGYNO, Mid(VARNYHI,1,4) & '/' & Mid(VARNYHI,5,2) & '/' & Mid(VARNYHI,7,2), VARTOCD, VARNYKU, VARKACD, VARTEKI, NUMKING, VARHJCD FROM YK_YKNY_DATA"
+    db.Execute sql
+
+    ---------------------------------------------------------------------------
+     Tオフセット発注
+    ---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 58/78 Tオフセット発注を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_Tオフセット発注(作業NO, 行NO, 発注先CD, 工程区分, 発注日, 発注納期, 発注数, 発注単位区分, 発注単価, 発注金額) SELECT  VARSGNO, VARGYNO, VARGACD, VARKOKU, Mid(VARHAHI,1,4) & '/' & Mid(VARHAHI,5,2) & '/' & Mid(VARHAHI,7,2), Mid(VARHNHI,1,4) & '/' & Mid(VARHNHI,5,2) & '/' & Mid(VARHNHI,7,2), NUMHASU, VARTNKU, NUMHATA, NUMHAKI FROM YK_YKOH_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T製造クレーム
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 59/78 T製造クレームを実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T製造クレーム(本台帳NO, クレーム発生日, 枝番, クレーム内容) SELECT  VARHDNO, Mid(VARCLHI,1,4) & '/' & Mid(VARCLHI,5,2) & '/' & Mid(VARCLHI,7,2), VAREDNO, VARCLCT FROM YK_YKSC_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T積算商談旧
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 60/78 T積算商談旧を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T積算商談旧(担当者CD, 積算NO, 行NO, 商談日, 注意事項) SELECT  VARTACD, VARSENO, VARGYNO, Mid(VARSYHI,1,4) & '/' & Mid(VARSYHI,5,2) & '/' & Mid(VARSYHI,7,2), VARCHUI FROM YK_YKSE_C_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T積算旧
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 61/78 T積算旧を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T積算旧(担当者CD, 積算NO, 積算年月日 , 得意先CD , 商品名, 通数, 通数1, 通数2, 通数3, 巻取区分, 巻取名, 出し方向区分, 出し方向名, 紙管, 枚数, スリッター, スリッター名, スリッター巾, カット1, カット2, カット3, 包装枚数, 面付, デザイン原価, デザインマージン率, デザイン見積原価, 一色版代原価, 一色版代マージン, 一色版代見積原価, 刃型原価, 刃型マージン率, 刃型見積原価, 運賃原価, 運賃マージン率, 運賃見積原価, 経費原価, 経費マージン率, 経費見積原価, その他原価, その他マージン率, その他見積原価, 原価小計, 見積原価小計, 刃型NO, ラベル寸幅, ラベル寸流, 角, 形状区分, ギア, 紙幅面付, 紙幅面付ドブ寸法, 一面送り面付, 流れ面付ドブ寸法, 色数, NUMRITU, 得意先名, データ区分, VARHNKU, 借方貸方区分, 売掛入金時借方候補区分, VARKEKU, VARSOKU, その他2原価, その他2マージン率, その他2見積原価, その他3原価, その他3マージン率, その他3見積原価, その他4原価, その他4マージン率, その他4見積原価, VARSOKU2, VARSOKU3, VARSOKU4, 印刷場所CD, その他名, その他名2, その他名3, その他名4, NUMKIMN)"
+    sql = sql & " SELECT  YK_YKSE_DATA.VARTACD   "
+    sql = sql & "      , YK_YKSE_DATA.VARSENO   "
+    sql = sql & "      , Mid(YK_YKSE_DATA.VARSEHI,1,4) & '/' & Mid(YK_YKSE_DATA.VARSEHI,5,2) & '/' & Mid(YK_YKSE_DATA.VARSEHI,7,2)"
+    sql = sql & "      , YK_YKSE_DATA.VARTOCD   "
+    sql = sql & "      , YK_YKSE_DATA.VARHIME  "
+    sql = sql & "      , YK_YKSE_DATA.NUMJYSU  "
+    sql = sql & "      , YK_YKSE_DATA.NUMTSSU1 "
+    sql = sql & "      , YK_YKSE_DATA.NUMTSSU2  "
+    sql = sql & "      , YK_YKSE_DATA.NUMTSSU3  "
+    sql = sql & "      , YK_YKSE_DATA.VARMKKU   "
+    sql = sql & "      , YK_YKSE_DATA.VARMKME   "
+    sql = sql & "      , YK_YKSE_DATA.VARDKKU   "
+    sql = sql & "      , YK_YKSE_DATA.VARDKME   "
+    sql = sql & "      , YK_YKSE_DATA.NUMSIKN    "
+    sql = sql & "      , YK_YKSE_DATA.NUMMAIS  "
+    sql = sql & "      , YK_YKSE_DATA.VARSRKU  "
+    sql = sql & "      , YK_YKSE_DATA.VARSRME   "
+    sql = sql & "      , YK_YKSE_DATA.NUMSRHA   "
+    sql = sql & "      , YK_YKSE_DATA.NUMCUT1   "
+    sql = sql & "      , YK_YKSE_DATA.NUMCUT2  "
+    sql = sql & "      , YK_YKSE_DATA.NUMCUT3  "
+    sql = sql & "      , YK_YKSE_DATA.NUMHMSU   "
+    sql = sql & "      , YK_YKSE_DATA.NUMOKPT   "
+    sql = sql & "      , YK_YKSE_DATA.NUMDESI   "
+    sql = sql & "      , YK_YKSE_DATA.NUMDERI   "
+    sql = sql & "      , YK_YKSE_DATA.NUMDEUR   "
+    sql = sql & "      , YK_YKSE_DATA.NUMHNSI   "
+    sql = sql & "      , YK_YKSE_DATA.NUMHNRI   "
+    sql = sql & "      , YK_YKSE_DATA.NUMHNUR   "
+    sql = sql & "      , YK_YKSE_DATA.NUMHASI   "
+    sql = sql & "      , YK_YKSE_DATA.NUMHARI   "
+    sql = sql & "      , YK_YKSE_DATA.NUMHAUR   "
+    sql = sql & "      , YK_YKSE_DATA.NUMUNSI   "
+    sql = sql & "      , YK_YKSE_DATA.NUMUNRI   "
+    sql = sql & "      , YK_YKSE_DATA.NUMUNUR   "
+    sql = sql & "      , YK_YKSE_DATA.NUMKESI   "
+    sql = sql & "      , YK_YKSE_DATA.NUMKERI   "
+    sql = sql & "      , YK_YKSE_DATA.NUMKEUR   "
+    sql = sql & "      , YK_YKSE_DATA.NUMSOSI   "
+    sql = sql & "      , YK_YKSE_DATA.NUMSORI   "
+    sql = sql & "      , YK_YKSE_DATA.NUMSOUR   "
+    sql = sql & "      , YK_YKSE_DATA.NUMSIGO    "
+    sql = sql & "      , YK_YKSE_DATA.NUMURGO    "
+    sql = sql & "      , YK_YKSE_DATA.VARHGNO   "
+    sql = sql & "      , YK_YKSE_DATA.NUMHSPW   "
+    sql = sql & "      , YK_YKSE_DATA.NUMHSPH   "
+    sql = sql & "      , YK_YKSE_DATA.NUMKDMR  "
+    sql = sql & "      , YK_YKSE_DATA.VARKJKU  "
+    sql = sql & "      , YK_YKSE_DATA.NUMGISU  "
+    sql = sql & "      , YK_YKSE_DATA.NUMRETU  "
+    sql = sql & "      , YK_YKSE_DATA.NUMRTKN  "
+    sql = sql & "      , YK_YKSE_DATA.NUMMENN   "
+    sql = sql & "      , YK_YKSE_DATA.NUMMNKN   "
+    sql = sql & "      , YK_YKSE_DATA.NUMIRSU   "
+    sql = sql & "      , YK_YKSE_DATA.NUMRITU   "
+    sql = sql & "      , YK_YKSE_DATA.VARTOME   "
+    sql = sql & "      , YK_YKSE_DATA.VARDEKU   "
+    sql = sql & "      , YK_YKSE_DATA.VARHNKU   "
+    sql = sql & "      , YK_YKSE_DATA.VARHAKU   "
+    sql = sql & "      , YK_YKSE_DATA.VARUNKU   "
+    sql = sql & "      , YK_YKSE_DATA.VARKEKU   "
+    sql = sql & "      , YK_YKSE_DATA.VARSOKU   "
+    sql = sql & "      , YK_YKSE_DATA.NUMSOSI2  "
+    sql = sql & "      , YK_YKSE_DATA.NUMSORI2  "
+    sql = sql & "      , YK_YKSE_DATA.NUMSOUR2  "
+    sql = sql & "      , YK_YKSE_DATA.NUMSOSI3  "
+    sql = sql & "      , YK_YKSE_DATA.NUMSORI3  "
+    sql = sql & "      , YK_YKSE_DATA.NUMSOUR3  "
+    sql = sql & "      , YK_YKSE_DATA.NUMSOSI4  "
+    sql = sql & "      , YK_YKSE_DATA.NUMSORI4  "
+    sql = sql & "      , YK_YKSE_DATA.NUMSOUR4  "
+    sql = sql & "      , YK_YKSE_DATA.VARSOKU2  "
+    sql = sql & "      , YK_YKSE_DATA.VARSOKU3  "
+    sql = sql & "      , YK_YKSE_DATA.VARSOKU4  "
+    sql = sql & "      , YK_YKSE_DATA.VARIBCD   "
+    sql = sql & "      , YK_YKSE_DATA.VARSOME   "
+    sql = sql & "      , YK_YKSE_DATA.VARSOME2  "
+    sql = sql & "      , YK_YKSE_DATA.VARSOME3  "
+    sql = sql & "      , YK_YKSE_DATA.VARSOME4  "
+    sql = sql & "      , YK_YKSE_DATA.NUMKIMN   "
+    sql = sql & "   FROM YK_YKSE_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T積算紙発注旧
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 62/78 T積算紙発注旧を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T積算紙発注旧(担当者CD, 積算NO, 行NO, 紙CD, 紙名, 糊CD, 糊名, 台紙CD, 台紙名, 巾, 長さ, 仕入CD, 社内価格, 単価区分, 支給区分, 有償支給単価, 通数, 送りMM, 刷出M, つなぎロス, その他M, 材料費原価, 材料費マージン率, 材料費見積原価, 工賃単価, 工賃作業量, 工賃単位, 工賃原価, 工賃マージン率, 工賃見積原価, 仕入指定区分) SELECT  VARTACD, VARSENO, VARGYNO, VARKACD, VARKAME, VARNRCD, VARNRME, VARDACD, VARDAME, NUMSUPW, NUMSUPH, VARSICD, NUMHATA, VARTAKU, VARSIKU, NUMSKTA, NUMTSSU, NUMOKSU, NUMSRDS, NUMLOSS, NUMSOLO, NUMSIKI, NUMRIKI, NUMURKI, NUMKOTA, NUMSGRY, VARSGTA, NUMKOGE, NUMKOMA, NUMKOUR, VARSTKU FROM YK_YKSE_K_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T作業完了版_刃型
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 63/78 T作業完了版_刃型を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T作業完了版_刃型(作業NO, 作業完了年月日, データ種別, 担当者CD, 枝番, 商品名, 更新日付, 更新日時) SELECT  VARSGNO, Mid(VARSGHI,1,4) & '/' & Mid(VARSGHI,5,2) & '/' & Mid(VARSGHI,7,2), VARKOCD, VARTACD, VAREDNO, VARUSER, Mid(VARDATE,1,4) & '/' & Mid(VARDATE,5,2) & '/' & Mid(VARDATE,7,2), VARTIME FROM YK_YKSGH_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T作業完了印刷
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 64/78 T作業完了印刷を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T作業完了印刷(作業NO, 作業完了年月日, 機械CD, 枝番, 通数, 単位区分, 単位区分名, 版交換回数, 通し区分, 完了区分, 担当者CD, 実働時間, NUMSETI, ストップ時間, NUMZGTI, 商品名, 更新日付, 更新日時, セット時刻, 開始時刻, 終了時刻, 完全終了時刻, 完全終了時刻_セット時刻, VARTSKU_GA) SELECT  VARSGNO, Mid(VARSGHI,1,4) & '/' & Mid(VARSGHI,5,2) & '/' & Mid(VARSGHI,7,2), VARKICD, VAREDNO, NUMTSSU, VARTAKU, VARTAME, NUMHAKS, VARTSKU, VARKNKU, VARKTCD, NUMJRTI, NUMSETI, NUMSTTI, NUMZGTI, VARUSER, Mid(VARDATE,1,4) & '/' & Mid(VARDATE,5,2) & '/' & Mid(VARDATE,7,2), Mid(VARTIME,1,2) & ':' & Mid(VARTIME,3,2) & ':' & Mid(VARTIME,5,2), Mid(VARSEJI,1,2) & ':' & Mid(VARSEJI,3,2), Mid(VARKSJI,1,2) & ':' & Mid(VARKSJI,3,2), Mid(VARSRJI,1,2) & ':' & Mid(VARSRJI,3,2), Mid(VARKZJI,1,2) & ':' & Mid(VARKZJI,3,2), NUMADTI, VARTSKU_GA FROM YK_YKSGI_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T作業完了検品_仕上_包装
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 65/78 T作業完了検品_仕上_包装を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T作業完了検品_仕上_包装(作業NO, 作業完了年月日, データ種別, 担当者CD, 枝番, 枚数, 単位区分, 単位名, 完了区分, 商品名, 更新日付, 更新日時, 本台帳枝番, 入庫NO) SELECT  VARSGNO, Mid(VARSGHI,1,4) & '/' & Mid(VARSGHI,5,2) & '/' & Mid(VARSGHI,7,2), VARKOCD, VARTACD, VAREDNO, NUMSGSR, VARTAKU, VARTAME, VARKNKU, VARUSER, Mid(VARDATE,1,4) & '/' & Mid(VARDATE,5,2) & '/' & Mid(VARDATE,7,2), VARTIME, VARHDEN, VARNKNO FROM YK_YKSGS_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T出金
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 66/78 T出金を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T出金(支払NO, 行NO, 支払年月日, 仕入先CD, 支払区分, 科目CD, 摘要, 支払金額, 補助科目CD) SELECT  VARSHNO, VARGYNO, Mid(VARSIHI,1,4) & '/' & Mid(VARSIHI,5,2) & '/' & Mid(VARSIHI,7,2), VARSICD, VARSHKU, VARKACD, VARTEKI, NUMKING, VARHJCD FROM YK_YKSH_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T仕入
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 67/78 T仕入を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T仕入(仕入No, 行No, 仕入年月日, 仕入先コード, 納入区分, 仕入区分, 作業No, 品名コード, 品名, 数量, 仕入単価, 仕入金額, 伝票摘要, VARHAGY, 完納区分, 分類区分, VARHIKU) SELECT  VARSINO, VARGYNO, Mid(VARSIHI,1,4) & '/' & Mid(VARSIHI,5,2) & '/' & Mid(VARSIHI,7,2), VARSICD, VARNNKU, VARSIKU, VARSGNO, VARHICD, VARHIME, NUMSURY, NUMTANK, NUMKING, VARDTEK, VARHAGY, VARKNKU, VARSBCD, VARHIKU FROM YK_YKSI_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T得意先別諸経費
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 68/78 T得意先別諸経費を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T得意先別諸経費(得意先CD, 発生年月, 諸経費金額, 分類区分) SELECT  VARTOCD, Mid(VARHANG,1,4) & '/' & Mid(VARHANG,5,2), NUMSKKI, VARBRKU FROM YK_YKSK_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' Tスリッター検査ラベル
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 69/78 Tスリッター検査ラベルを実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_Tスリッター検査ラベル(スリッター担当者, 発行年月日, 発行NO, 行NO, 作業NO, 巻数1, 面付数1, 資材ロットNo1, 巻数2, 面付数2, 資材ロットNo2, 巻数3, 面付数3, 資材ロットNo3, VARSEDNO, 巻数4, 面付数4, 資材ロットNo4, 巻数5, 面付数5, 資材ロットNo5, 巻数6, 面付数6, 資材ロットNo6) SELECT  VARTACD, Mid(VARHKHI,1,4) & '/' & Mid(VARHKHI,5,2) & '/' & Mid(VARHKHI,7,2), VARSRNO, VARGYNO, VARSGNO, NUMKNSU1, VARMNKI1, VARISNO1, NUMKNSU2, VARMNKI2, VARISNO2, NUMKNSU3, VARMNKI3, VARISNO3, VARSEDNO, NUMKNSU4, VARMNKI4, VARISNO4, NUMKNSU5, VARMNKI5, VARISNO5, NUMKNSU6, VARMNKI6, VARISNO6 FROM YK_YKSR_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T積算
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 70/78 T積算実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T積算(積算NO, 積算日, 得意先CD, 得意先名1, 得意先名2, 品名1, 品名2, 入力担当CD, 刃型NO, ラベルサイズ巾, ラベルサイズ流れ, ラベルサイズ面付巾, ラベルサイズラベルサイズ面付流れ, ラベルサイズギア数, ラベルサイズドブ1, ラベルサイズドブ2, ラベルサイズ送りピッチ, ラベルサイズ角R, ラベルサイズ形状区分, 表, 裏, 版代A, 版代, 版代区分, 刃型A, 刃型, 刃型区分, デザイン代, デザイン区分, 巻取区分 , 巻取名, 出し方向区分, 出し方向名, 紙管, 枚数, スリッター区分, スリッター名, スリッター巾, カット1, カット2, カット3, 包装枚, 印刷場所CD, 備考1, 備考2, 備考3, 備考4, 備考5, 備考6, 備考7, NUMKIMS)"
+    sql = sql & " SELECT  YK_YKSS_DATA.VARSENO   "
+    sql = sql & "      , Mid(YK_YKSS_DATA.VARSEHI,1,4) & '/' & Mid(YK_YKSS_DATA.VARSEHI,5,2) & '/' & Mid(YK_YKSS_DATA.VARSEHI,7,2)"
+    sql = sql & "      , YK_YKSS_DATA.VARTOCD   "
+    sql = sql & "      , YK_YKSS_DATA.VARTOME1   "
+    sql = sql & "      , YK_YKSS_DATA.VARTOME2  "
+    sql = sql & "      , YK_YKSS_DATA.VARHIME1  "
+    sql = sql & "      , YK_YKSS_DATA.VARHIME2 "
+    sql = sql & "      , YK_YKSS_DATA.VARTACD  "
+    sql = sql & "      , YK_YKSS_DATA.VARHGNO  "
+    sql = sql & "      , YK_YKSS_DATA.NUMHSPW   "
+    sql = sql & "      , YK_YKSS_DATA.NUMHSPH   "
+    sql = sql & "      , YK_YKSS_DATA.NUMMESUW   "
+    sql = sql & "      , YK_YKSS_DATA.NUMMESUW   "
+    sql = sql & "      , YK_YKSS_DATA.NUMGISU    "
+    sql = sql & "      , YK_YKSS_DATA.NUMDBSUW  "
+    sql = sql & "      , YK_YKSS_DATA.NUMDBSUH  "
+    sql = sql & "      , YK_YKSS_DATA.NUMHOKP   "
+    sql = sql & "      , YK_YKSS_DATA.NUMKDMR   "
+    sql = sql & "      , YK_YKSS_DATA.VARKJKU   "
+    sql = sql & "      , YK_YKSS_DATA.NUMIRSUO  "
+    sql = sql & "      , YK_YKSS_DATA.NUMIRSUU  "
+    sql = sql & "      , YK_YKSS_DATA.NUMHDTA   "
+    sql = sql & "      , YK_YKSS_DATA.NUMHDKI   "
+    sql = sql & "      , YK_YKSS_DATA.VARHDKU   "
+    sql = sql & "      , YK_YKSS_DATA.NUMHGTA   "
+    sql = sql & "      , YK_YKSS_DATA.NUMHGKI   "
+    sql = sql & "      , YK_YKSS_DATA.VARHGKU   "
+    sql = sql & "      , YK_YKSS_DATA.NUMHSKI   "
+    sql = sql & "      , YK_YKSS_DATA.VARHSKU   "
+    sql = sql & "      , YK_YKSS_DATA.VARMKKU   "
+    sql = sql & "      , YK_YKSS_DATA.VARMKME   "
+    sql = sql & "      , YK_YKSS_DATA.VARDKKU   "
+    sql = sql & "      , YK_YKSS_DATA.VARDKME   "
+    sql = sql & "      , YK_YKSS_DATA.NUMSIKN   "
+    sql = sql & "      , YK_YKSS_DATA.NUMMAIS   "
+    sql = sql & "      , YK_YKSS_DATA.VARSRKU   "
+    sql = sql & "      , YK_YKSS_DATA.VARSRME   "
+    sql = sql & "      , YK_YKSS_DATA.NUMSRHA   "
+    sql = sql & "      , YK_YKSS_DATA.NUMCUT1   "
+    sql = sql & "      , YK_YKSS_DATA.NUMCUT2   "
+    sql = sql & "      , YK_YKSS_DATA.NUMCUT3   "
+    sql = sql & "      , YK_YKSS_DATA.NUMHMSU    "
+    sql = sql & "      , YK_YKSS_DATA.VARIBCD    "
+    sql = sql & "      , YK_YKSS_DATA.VARBIKO1   "
+    sql = sql & "      , YK_YKSS_DATA.VARBIKO2   "
+    sql = sql & "      , YK_YKSS_DATA.VARBIKO3   "
+    sql = sql & "      , YK_YKSS_DATA.VARBIKO4  "
+    sql = sql & "      , YK_YKSS_DATA.VARBIKO5  "
+    sql = sql & "      , YK_YKSS_DATA.VARBIKO6  "
+    sql = sql & "      , YK_YKSS_DATA.VARBIKO7  "
+    sql = sql & "      , YK_YKSS_DATA.NUMKIMS  "
+    sql = sql & "   FROM YK_YKSS_DATA "
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T積算原紙
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 71/78 T積算原紙を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T積算原紙(積算NO, 行NO, 紙CD, 紙名, 糊CD, 糊名, 台紙CD, 台紙名, 仕入先CD, 指定区分, 単価区分, 社内価格, 支給区分, 有償支給単価) SELECT  VARSENO, VARGYNO, VARKACD, VARKAME, VARNRCD, VARNRME, VARDACD, VARDAME, VARSICD, VARSTKU, VARTAKU, NUMHATA, VARSIKU, NUMSKTA FROM YK_YKSS_K_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T積算計算内内訳
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 72/78 T積算計算内内訳を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T積算計算内内訳(積算NO, 行NO, 分類CD, VARMECD, 数値1, 数値2, 数値3, 数値4, 数値5, 項目ロット数名, 単位, 項目ロット数名2) SELECT  VARSENO, VARGYNO, VARBUCD, VARMECD, NUMSUTI1, NUMSUTI2, NUMSUTI3, NUMSUTI4, NUMSUTI5, VARKTME, VARTANI, VARKTME2 FROM YK_YKSS_UW_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T締日残高
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 73/78 T締日残高を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T締日残高(得意先CD, 締日, 期首残高) SELECT  VARTOCD, Mid(VARSIHI,1,4) & '/' & Mid(VARSIHI,5,2) & '/' & Mid(VARSIHI,7,2), NUMZAKI FROM YK_YKSZ_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T売上
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 74/78 T売上を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T売上(得意先CD, 納品年月日, 伝票NO, 行NO, 請求先CD, 出荷先CD, 出荷先名, 担当者CD, 納品区分, 仕上年月日, 売上区分, 作業NO, 定番CD, 枝番, 商品名, 数量, 単価, 金額, 伝票摘要, 運送会社CD, 発送年月日, 到着年月日, VARHCKU, 送り状発行枚数, 原価計算用送料, 荷札発行枚数, 分類CD, VARHUKU, 表記単価, 顧客発注NO, VARSKHI, 出荷予定表備考欄) SELECT  VARTOCD, Mid(VARURHI,1,4) & '/' & Mid(VARURHI,5,2) & '/' & Mid(VARURHI,7,2), VARURNO, VARGYNO, VARSECD, VARSKCD, VARSKME, VARTACD, VARNOKU, Mid(VARSAHI,1,4) & '/' & Mid(VARSAHI,5,2) & '/' & Mid(VARSAHI,7,2), VARURKU, VARSGNO, VARHICD, VAREDNO, VARHIME, NUMSURY, NUMTANK, NUMKING, VARDTEK, VARUNCD, Mid(VARHSHI,1,4) & '/' & Mid(VARHSHI,5,2) & '/' & Mid(VARHSHI,7,2), Mid(VARTCHI,1,4) & '/' & Mid(VARTCHI,5,2) & '/' & Mid(VARTCHI,7,2), VARHCKU, NUMOKSU, NUMSOKI, NUMNFSU, VARSBCD, VARHUKU, NUMHKTA, VARHANO, VARSKHI, VARBIKO FROM YK_YKUR_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' Tヤマト納品明細
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 75/78 Tヤマト納品明細を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_Tヤマト納品明細(データ区分, 受注NO, 行NO, 納品日, 店所CD, 担当者名, 数量, FAXNO, 種別区分, 備考, バーコード呼び出し) SELECT  VARDTKU, VARJCNO, VARGYNO, Mid(VARNHHI,1,4) & '/' & Mid(VARNHHI,5,2) & '/' & Mid(VARNHHI,7,2), VARTSCD, VARKTME, NUMJCSR, VARFANO, VARSBKU, VARSKME, VARBAKY FROM YK_YKYN_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T生産計画
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 76/78 T生産計画を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T生産計画(生産計画日, 機械CD, 行NO, 作業NO) SELECT  Mid(VARSYHI,1,4) & '/' & Mid(VARSYHI,5,2) & '/' & Mid(VARSYHI,7,2), VARKICD, VARGYNO, VARSGNO FROM YK_YKYO_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T余剰在庫入庫
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 77/78 T余剰在庫入庫を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T余剰在庫入庫(作業NO, 作業NO枝番, 本台帳NO, 本台帳NO枝番, 入庫年月日, 入庫数, 備考, 累計出庫数) SELECT  VARYSGN, VARYEDN, VARHDNO, VARHDEN, Mid(VARZNHI,1,4) & '/' & Mid(VARZNHI,5,2) & '/' & Mid(VARZNHI,7,2), NUMNYSU, VARBIKO, NUMRSSU FROM YK_YKZN_DATA"
+    db.Execute sql
+
+    '---------------------------------------------------------------------------
+    ' T在庫
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = " 78/78 T在庫を実行中..."
+    Me.Repaint
+
+    sql = "INSERT INTO dbo_T在庫(品名CD, 在庫時点年月, 在庫数量, 仕掛数) SELECT  VARHICD, Mid(VARNEGE,1,4) & '/' & Mid(VARNEGE,5,2), NUMZASR, NUMZASR_SK FROM YK_YKZZ_DATA"
+    db.Execute sql
+        
+    '---------------------------------------------------------------------------
+    ' 終了
+    '---------------------------------------------------------------------------
+    Me.lblStatus.Caption = "終了"
+    Me.Repaint
+    
+    MsgBox "終了しました!!"
+End Sub
+

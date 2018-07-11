@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3A05845C-6146-47C7-8BDC-0F42D3A8A1C0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>NodeCore</RootNamespace>
+    <AssemblyName>NodeCore</AssemblyName>
+    <MyType>Windows</MyType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>NodeCore.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>NodeCore.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ActiveReports.Document, Version=6.6.4653.1, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="ActiveReports.PdfExport, Version=6.6.4653.1, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="ActiveReports6, Version=6.6.4653.1, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="SpreadsheetGear, Version=6.0.3.190, Culture=neutral, PublicKeyToken=39c186f5904944ec, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Config.vb" />
+    <Compile Include="Common\Frame.vb" />
+    <Compile Include="Common\Provider.vb" />
+    <Compile Include="Common\Security.vb" />
+    <Compile Include="Common\Logic.vb" />
+    <Compile Include="Common\Numbering.vb" />
+    <Compile Include="Common\Exist.vb" />
+    <Compile Include="Master\BalanceClosing.vb" />
+    <Compile Include="Master\Paste.vb" />
+    <Compile Include="Master\Paper.vb" />
+    <Compile Include="Master\Delivery.vb" />
+    <Compile Include="Master\Machine.vb" />
+    <Compile Include="Master\Mount.vb" />
+    <Compile Include="Master\PrintLoc.vb" />
+    <Compile Include="Master\Personnel.vb" />
+    <Compile Include="Master\CustomerOne.vb" />
+    <Compile Include="Master\DeliveryList.vb" />
+    <Compile Include="Master\Customer.vb" />
+    <Compile Include="Master\BillDDInfo.vb" />
+    <Compile Include="Master\PaperPriIn.vb" />
+    <Compile Include="Master\PaperPriList.vb" />
+    <Compile Include="Master\ItemName.vb" />
+    <Compile Include="Master\Supplier.vb" />
+    <Compile Include="Master\YamatoDate.vb" />
+    <Compile Include="Master\YamatoKind.vb" />
+    <Compile Include="Master\PrinterSetting.vb" />
+    <Compile Include="Master\YamatoShop.vb" />
+    <Compile Include="Master\Type1.vb" />
+    <Compile Include="Master\Type2.vb" />
+    <Compile Include="Master\BalanceMonthly.vb" />
+    <Compile Include="Master\Test.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Order\OffSet.vb" />
+    <Compile Include="Order\OrderBase.vb" />
+    <Compile Include="Order\FlexBlade.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Base\BaseContents\BaseContents.vbproj">
+      <Project>{6308BD12-6FFA-446C-BAE2-1F14998E1DA8}</Project>
+      <Name>BaseContents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Base\BaseCore\BaseCore.vbproj">
+      <Project>{DAD54854-E396-46E6-B921-00697B881A7C}</Project>
+      <Name>BaseCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Base\BaseDatabase\BaseDatabase.vbproj">
+      <Project>{43D04C14-075D-4707-AA16-9D3C0ED7ECB0}</Project>
+      <Name>BaseDatabase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NodeContents\NodeContents.vbproj">
+      <Project>{05D8E021-6D40-4584-BF4E-64DEE49CE5AD}</Project>
+      <Name>NodeContents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NodeDatabase\NodeDatabase.vbproj">
+      <Project>{4DE7E39F-F0F2-4DDF-80B4-38CADCA5E54C}</Project>
+      <Name>NodeDatabase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NodeReport\NodeReport.vbproj">
+      <Project>{18498D91-97A1-40C6-A856-D0B65D790B82}</Project>
+      <Name>NodeReport</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Daily\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

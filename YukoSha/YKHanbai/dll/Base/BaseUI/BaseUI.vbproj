@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C6F2B9AF-800A-43AB-8314-A66A772A00D1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>BaseUI</RootNamespace>
+    <AssemblyName>BaseUI</AssemblyName>
+    <MyType>Windows</MyType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>BaseUI.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>BaseUI.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ActiveReports.Document, Version=6.6.4653.1, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="ActiveReports.PdfExport, Version=6.6.4653.1, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="ActiveReports.Viewer6, Version=6.6.4653.1, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="ActiveReports6, Version=6.6.4653.1, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\GridView.vb" />
+    <Compile Include="Control\Tool.vb" />
+    <Compile Include="Control\Button.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\CheckBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\ComboBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\Label.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\ListBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\PictureBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\ProgressBar.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\RadioButton.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\TextBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\GroupBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\Panel.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\GridView.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\GridInput.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Control\NameBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Pages\BaseDialog.Designer.vb">
+      <DependentUpon>BaseDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BaseDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\BaseForm.Designer.vb">
+      <DependentUpon>BaseForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BaseForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\BasePrint.Designer.vb">
+      <DependentUpon>BasePrint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BasePrint.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\BaseDialog.resx">
+      <DependentUpon>BaseDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\BaseForm.resx">
+      <DependentUpon>BaseForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\BasePrint.resx">
+      <DependentUpon>BasePrint.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Node\NodeContents\NodeContents.vbproj">
+      <Project>{05D8E021-6D40-4584-BF4E-64DEE49CE5AD}</Project>
+      <Name>NodeContents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Node\NodeCore\NodeCore.vbproj">
+      <Project>{3A05845C-6146-47C7-8BDC-0F42D3A8A1C0}</Project>
+      <Name>NodeCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Node\NodeDatabase\NodeDatabase.vbproj">
+      <Project>{4DE7E39F-F0F2-4DDF-80B4-38CADCA5E54C}</Project>
+      <Name>NodeDatabase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Node\NodeUI\NodeUI.vbproj">
+      <Project>{5A0EEF46-149A-41D8-BB9A-93DB5DA4F381}</Project>
+      <Name>NodeUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseContents\BaseContents.vbproj">
+      <Project>{6308BD12-6FFA-446C-BAE2-1F14998E1DA8}</Project>
+      <Name>BaseContents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseCore\BaseCore.vbproj">
+      <Project>{DAD54854-E396-46E6-B921-00697B881A7C}</Project>
+      <Name>BaseCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
